@@ -1,2 +1,3 @@
 Main says hello
 Feature 1 says hi
+New line
