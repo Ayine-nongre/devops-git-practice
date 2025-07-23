@@ -2,6 +2,8 @@ name: Show Text CI
 
 on:
   push:
+    paths:
+      - notes.txt
     branches: [master]
 
 jobs:
@@ -14,3 +16,6 @@ jobs:
 
       - name: Print content of notes.txt
         run: cat notes.txt
+
+      - name: Print the current time and date
+        run: date
