@@ -1,22 +1,11 @@
-name: Save changes to an artifact
+name: Use reusable logger
 
 on:
   push:
     branches: [master]
 
 jobs:
-  generate-artifact:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-
-      - name: Create artifact from notes.txt
-        run: cat notes.txt > report.txt
-
-      - name: Upload the report to artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: my-report
-          path: report.txt
+  call-logger:
+    uses: ./.github/workflows/artifact-logger.yml
+    with:
+      triggered_by: Eugene from use-logger.yml
