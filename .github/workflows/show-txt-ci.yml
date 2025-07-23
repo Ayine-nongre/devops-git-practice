@@ -1,21 +1,22 @@
-name: Show Text CI
+name: Save changes to an artifact
 
 on:
   push:
-    paths:
-      - notes.txt
     branches: [master]
 
 jobs:
-  show-text:
+  generate-artifact:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Print content of notes.txt
-        run: cat notes.txt
+      - name: Create artifact from notes.txt
+        run: cat notes.txt > report.txt
 
-      - name: Print the current time and date
-        run: date
+      - name: Upload the report to artifacts
+        uses: actions/upload-artifact@v4
+        with:
+	  name: my-report
+	  path: report.txt
