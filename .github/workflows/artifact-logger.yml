@@ -21,7 +21,7 @@ jobs:
              echo "Triggered by: ${{inputs.triggered_by}}" >> log.txt
              echo "Date: $(date -u)" >> log.txt
              echo "Commit: $GITHUB_SHA" >> log.txt
-             echo "Commit message: ${{git log -1 --pretty=%B}}" >> log.txt
+             echo "Commit message: $(git log -1 --pretty=%B)" >> log.txt
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
