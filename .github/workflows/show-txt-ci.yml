@@ -9,8 +9,8 @@ jobs:
 		runs-on: ubuntu-latest
 
 		steps:
-			name: Checkout Repo
-			uses: actions/checkout@v4
+			- name: Checkout Repo
+			  uses: actions/checkout@v4
 
-			name: Print content of notes.txt
-			run: cat notes.txt
+			- name: Print content of notes.txt
+			  run: cat notes.txt
